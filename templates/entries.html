@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saved Tiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-gray-500 to-gray-300 text-white flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-3xl font-bold mb-6 text-center">Saved Tiles</h1>
+        <ul class="space-y-6">
+            {% for entry in entries %}
+                <li class="bg-gray-700 p-4 rounded text-gray-300">
+                    <p class="mb-2">{{ entry[1] }}</p>
+                    {% if entry[2] %}
+                        <div class="flex flex-wrap gap-2">
+                            {% for keyword in entry[2].split(',') %}
+                                <span class="bg-blue-300 text-blue-900 px-2 py-1 rounded">{{ keyword.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="mt-4">
+                        <a href="{{ url_for('display_entry', id=entry[0]) }}" class="text-blue-400 hover:underline">View Details</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="block text-center mt-6 text-blue-400 hover:underline">Back to Home</a>
+    </div>
+</body>
+</html>

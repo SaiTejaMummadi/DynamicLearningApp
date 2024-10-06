@@ -1,0 +1,4 @@
+
+delete from entries;
+delete from generated_content;
+delete from additional_info;
