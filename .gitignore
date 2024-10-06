@@ -7,6 +7,10 @@ venv/
 # macOS system files
 .DS_Store
 
+# Database
+db.sqlite3
+database.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
